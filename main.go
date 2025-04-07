@@ -2,20 +2,16 @@ package main
 
 import (
 	"db-project/internal/db"
-	"db-project/internal/handler"
+	"db-project/internal/routes"
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/gorilla/mux"
 )
 
 func main() {
 	db.InitDB()
 
-	r := mux.NewRouter()
-	r.HandleFunc("/users", handler.CreateUser).Methods("POST")
-	r.HandleFunc("/users", handler.GetUsers).Methods("GET")
+	r := routes.SetupRouter()
 
 	port := os.Getenv("PORT")
 	if port == "" {
