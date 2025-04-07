@@ -25,5 +25,10 @@ func SetupRouter() *mux.Router {
 	r.HandleFunc("/order-items", handler.CreateOrderItem).Methods("POST")
 	r.HandleFunc("/order-items", handler.GetOrderItems).Methods("GET")
 
+	// Relatórios
+	r.HandleFunc("/users/order-summary", handler.GetUserOrderSummary).Methods("GET")
+	r.HandleFunc("/products/top-selling", handler.GetBestSellingProducts).Methods("GET")
+	r.HandleFunc("/orders/monthly-summary", handler.GetProductsWithDetails).Methods("GET")
+
 	return r
 }

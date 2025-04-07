@@ -3,7 +3,6 @@ package db
 import (
 	"database/sql"
 	"log"
-	"os"
 
 	_ "github.com/snowflakedb/gosnowflake"
 )
@@ -11,7 +10,7 @@ import (
 var DB *sql.DB
 
 func InitDB() {
-	dsn := os.Getenv("URL_CONNECTION")
+	dsn := "JULIOCTAVARES:tokkat-jubbo8-sYscej@KMRHBCK-NA73918/PROJECT_DB/PUBLIC?warehouse=COMPUTE_WH"
 
 	var err error
 	DB, err = sql.Open("snowflake", dsn)
